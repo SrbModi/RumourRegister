@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 # from user_data.models import *
-from login.models import *
+from login_data.models import *
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 @csrf_exempt

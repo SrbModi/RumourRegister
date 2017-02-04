@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from forgot_password.views import change_password,forgot_get_pass,forgot_ver_pass,welcome
+from login_data.views import login_view
+from user_data.views import signup
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -23,6 +25,8 @@ urlpatterns = [
     url(r'^forgot_password/$',forgot_get_pass),
     url(r'^verify_password/$',forgot_ver_pass),
     url(r'^change_password/$',change_password),
+    url(r'^login/$',login_view),
+    url(r'^register/$',signup),
 ]
 
 from django.conf import settings
