@@ -15,7 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from forgot_password.views import change_password,forgot_get_pass,forgot_ver_pass,welcome
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$',welcome),
+    url(r'^forgot_password/$',forgot_get_pass),
+    url(r'^verify_password/$',forgot_ver_pass),
+    url(r'^change_password/$',change_password),
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
