@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login_data',
     'forgot_password',
     'user_data',
+    'report',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,6 @@ MEDIA_ROOT = "media/"
 
 # PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
+                        "django_excel.TemporaryExcelFileUploadHandler")

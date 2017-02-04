@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Day 001 Login Form</title>
+  
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
+
+      <link rel="stylesheet" href="/static/css3/style.css">
+
+  
+</head>
+
+<body>
+  <div class="login-wrap">
+	<div class="login-html">
+		<form action="." enctype="multipart/form-data"  method="POST">
+		<input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab"></label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up" checked>
+		<label for="tab-2" class="tab">ADD USER</label>
+		<div class="login-form">
+			<!-- <div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Username</label>
+					<input id="user" type="text" name="user_id" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input id="pass" type="password" name="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Sign In">
+				</div>
+			</from>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">Forgot Password?</a>
+				</div>
+			</div> -->
+			<div class="sign-up-htm">
+				<div class="group">
+					<label for="user" class="label">Name of institution/Person</label>
+					<input  type="text" name="noi"class="input" >
+				</div>
+				<div class="group">
+					<label for="email" class="label">Email Id</label>
+					<input  type="text" name="email" class="input" >
+				</div>
+				<div class="group">
+					<label for="mobile" class="label">Mobile</label>
+					<input  type="text" name="Mobile" class="input" >
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Submit">
+				</div>
+			</form>
+				<div class="hr"></div>
+				<label for="tab-2" class="tab">OR</label>
+				<br><br>
+				<input type="checkbox" id="yescheck" name="check" value="1" onclick="javascript:yes1check();">
+				<label for="user" class="label">summit an excel or .csv sheet having heading in 1'st row in sequencial order as (noi,Email Id,Mobile) 
+		           </label>
+                    <div>
+		            <form  action="" enctype="multipart/form-data"  method="post">
+		            	<fieldset id="myFieldset" disabled style="border:0;">
+			        <table>
+			            {{ form.as_table }}
+			        </table>
+			        {% csrf_token %}
+			        <input type="submit" value="Submit">
+			        </fieldset>
+			    </form>
+			</div>
+				<!-- <div class="foot-lnk">
+					<label for="tab-1">Already Member?</a> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+  <script type="text/javascript">
+	function yes1check() {
+    if (document.getElementById('yescheck').checked) {
+        document.getElementById('myFieldset').disabled=false;
+    }
+    else document.getElementById('myFieldset').disabled =true;
+}
+function no1check() {
+    if (document.getElementById('nocheck').checked) {
+        document.getElementById('ifyes').style.display = 'none';
+    }
+}
+	</script>
+  
+</body>
+</html>

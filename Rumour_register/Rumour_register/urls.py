@@ -17,7 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from forgot_password.views import change_password,forgot_get_pass,forgot_ver_pass,welcome
 from login_data.views import login_view
-from user_data.views import signup
+from user_data.views import signup,add,send_mail
+from report.views import add_repo,feed
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +28,12 @@ urlpatterns = [
     url(r'^change_password/$',change_password),
     url(r'^login/$',login_view),
     url(r'^register/$',signup),
+    url(r'^add/$',add),
+    url(r'^send_mail/$',send_mail),
+    url(r'^add_repo/$',add_repo),
+    url(r'^feed/$',feed),
+
+
 ]
 
 from django.conf import settings
