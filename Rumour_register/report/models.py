@@ -4,13 +4,13 @@ from django.db import models
 
 class report(models.Model):
 	serial = models.AutoField(primary_key=True)
-	user_id = models.CharField(max_length=30) 
+	user = models.CharField(max_length=30) 
 	no_cases = models.SmallIntegerField(default =1)
 	symptoms = models.CharField(max_length = 256)
 	prob_cause = models.CharField(max_length=256)
 	doc_response = models.CharField(max_length=256)
 	cur_sit = models.CharField(max_length=256)
-	rel_reports = models.FileField(upload_to = './reports')  #check syntax
+	# rel_reports = models.FileField(upload_to = './reports')  #check syntax
 	loc_response = models.CharField(max_length=256)
 
 

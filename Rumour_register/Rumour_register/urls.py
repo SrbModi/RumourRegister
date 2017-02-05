@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from forgot_password.views import change_password,forgot_get_pass,forgot_ver_pass,welcome
-from login_data.views import login_view
+from login_data.views import login_view,logout_view
 from user_data.views import signup,add,send_mail
 from report.views import add_repo,feed
 
@@ -32,6 +32,8 @@ urlpatterns = [
     url(r'^send_mail/$',send_mail),
     url(r'^add_repo/$',add_repo),
     url(r'^feed/$',feed),
+    url(r'^logout/$',logout_view),
+
 
 
 ]

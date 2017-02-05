@@ -61,54 +61,58 @@ def signup(request):
 			return HttpResponse(str(response))
 		else:
 			return render (request,'detail.html')
+
+@login_required
 @csrf_exempt
 def add(request):
-	if request.user.is_authenticated():
-		return render(request,'welcome.html')
-	else:
-		if request.method=="POST" :
-			check=str(request.POST.get("check"))
-			print check
-			response={}
-			if check==None:	
-				try:
-					noi=str(request.POST.get("noi"))
-					print noi
-					email=str(request.POST.get("email"))
-					print email
-					Mobile=str(request.POST.get("Mobile"))
-					print Mobile
-					add_data.objects.create(noi=noi,Mobile=Mobile,email=email,flag=1)
-					response["success"]=True
-					body="""Hello, 
-	youyou have been register for rumour register from your head,
-	kindly complete step 2 by using link below.
-	https://http://127.0.0.1:8000/register/"""
-					backend=EmailBackend(host='smtp.gmail.com', port=587, username='arpitj938@gmail.com', password='ksdrxcafsezpopeu', use_tls=True, fail_silently=True)
-					EmailMsg=EmailMessage("Rumour Register",body,'no-reply@gmail.com',[email] ,connection=backend)
-					EmailMsg.send()
-					print str(email)
-					response["success"]=True
-				except:
-					response["success"]=False
-				# response["message"]="roll no already register"
-				return HttpResponse(str(response))
-			else:
-				form = UploadFileForm(request.POST,
-                      request.FILES)
-
-		        if form.is_valid():
-		            request.FILES['file'].save_to_database(
-	                model=add_data,
-	                mapdict=['noi', 'email', 'Mobile'])
-		            return HttpResponseRedirect("/send_mail/")
-
-		        else:
-		            return HttpResponseBadRequest()
-
+	if request.method=="POST" :
+		check=str(request.POST.get("check"))
+		print check
+		response={}
+		if check!=None:	
+			try:
+				noi=str(request.POST.get("noi"))
+				print noi
+				email=str(request.POST.get("email"))
+				print email
+				Mobile=str(request.POST.get("Mobile"))
+				print Mobile
+				add_data.objects.create(noi=noi,Mobile=Mobile,email=email,flag=1)
+				response["success"]=True
+				body="""Hello
+you have been register for Rumour Register 
+kindly complete step 2 
+http://127.0.0.1:8000/register/
+with regards,
+Team Rumour Register
+with regards,
+Team Rumour Register"""
+				# print body % ("no_cases",'symptoms','prob_cause','doc_response','cur_sit','loc_response')
+				backend=EmailBackend(host='smtp.gmail.com', port=587, username='arpitj938@gmail.com', password='ksdrxcafsezpopeu', use_tls=True, fail_silently=True)
+				EmailMsg=EmailMessage("Rumour Register",body,'no-reply@gmail.com',[email] ,connection=backend)
+				EmailMsg.send()
+				print str(email)
+				response["success"]=True
+			except:
+				response["success"]=False
+			# response["message"]="roll no already register"
+			return HttpResponse(str(response))
 		else:
-			form = UploadFileForm()
-			return render (request,'add.html',{'form': form})
+			form = UploadFileForm(request.POST,
+                  request.FILES)
+
+	        if form.is_valid():
+	            request.FILES['file'].save_to_database(
+                model=add_data,
+                mapdict=['noi', 'email', 'Mobile'])
+	            return HttpResponseRedirect("/send_mail/")
+
+	        else:
+	            return HttpResponseBadRequest()
+
+	else:
+		form = UploadFileForm()
+		return render (request,'add.html',{'form': form})
 @csrf_exempt
 def send_mail(request):
 	response={}
@@ -117,12 +121,15 @@ def send_mail(request):
 			print o.flag
 			o.flag=1
 			o.save()
-			body="""Hello, 
-you have been register for rumour register from your head,
-kindly complete step 2 by using link below.
-https://http://127.0.0.1:8000/register/"""
+			body="""Hello
+you have been register for Rumour Register 
+kindly complete step 2 
+http://127.0.0.1:8000/register/
+with regards,
+Team Rumour Register"""
+			print body % ("no_cases",'symptoms','prob_cause','doc_response','cur_sit','loc_response')
 			backend=EmailBackend(host='smtp.gmail.com', port=587, username='arpitj938@gmail.com', password='ksdrxcafsezpopeu', use_tls=True, fail_silently=True)
-			EmailMsg=EmailMessage("Rumour Register",body,'no-reply@gmail.com',[o.email] ,connection=backend)
+			EmailMsg=EmailMessage("Rumour Register",body ,'no-reply@gmail.com',[o.email] ,connection=backend)
 			EmailMsg.send()
 		response["success"]=True
 		response["message"]="email sent"

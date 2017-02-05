@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Feed Form </title>
+  <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="/static/css4/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="/static/css4/switchery.min.css">
+  <script type="text/javascript" src="/static/js/switchery.min.js"></script>
+</head>
+
+<body style="background-color:rgba(40,57,101,0.9);">
+  <div id="wrapper">
+  
+ <h1 style="color:white;"> Feed Form</h1>
+  
+  <form action="." enctype="multipart/form-data"  method="POST">
+  <div class="col-2">
+    <label>
+      No of cases
+      <input placeholder="number of cases?" id="name" name="no_cases" tabindex="1"  required>
+    </label>
+  </div>
+  <div class="col-2">
+    <label>
+      probable cause
+      <input placeholder="probable case"  name="prob_cause" tabindex="2">
+    </label>
+  </div>
+  
+  <div class="col-3">
+    <label>
+      doctor response
+      <input placeholder="what doctor is saying"  name="doc_response" tabindex="3">
+    </label>
+  </div>
+  <div class="col-3">
+    <label>
+      current situations
+      <input placeholder="current situations :no of ill, death,etc"  name="cur_sit" tabindex="4" required>
+    </label>
+  </div>
+  <div class="col-3">
+    <label>
+      local response
+      <input placeholder="cause common people are saying"  name="loc_response" tabindex="5">
+    </label>
+  </div>
+  
+  <div class="col-4">
+    <label>
+      symptoms
+      <input placeholder="List few symptoms" id="skills" name="symptoms" tabindex="6">
+    </label>
+  </div>
+  <!-- <label>
+       <div id="dynamicInput">
+          symptoms<br><input type="text" style="width:1150px;" name="symptoms[]" tabindex="6">
+     </div>
+      </label>
+      <input type="button" value="Add another text input" onClick="addInput('dynamicInput');" tabindex="6">
+    </div> -->
+  <div class="col-5">
+    <label>
+      report
+      <input placeholder="How many years of experience?" type="file" name="experience" tabindex="7">
+    </label>
+  </div>
+  
+  <div class="col-submit">
+    <button class="submitbtn">Submit Form</button>
+  </div>
+  
+  </form>
+  </div>
+<script type="text/javascript">
+var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+elems.forEach(function(html) {
+  var switchery = new Switchery(html);
+});
+</script>
+<!-- <script src="/wp-includes/js/addInput.js" language="Javascript" type="text/javascript"></script> -->
+// <script type="text/javascript">
+//     var counter = 1;
+
+//     var limit = 200;
+
+//     var string;
+
+//     function addInput(divName){
+
+//          if (counter == limit)  {
+
+//               alert("You have reached the limit of adding " + counter + " inputs");
+
+//          }
+
+//          else {
+
+//               var newdiv = document.createElement('div');
+
+//               newdiv.className = "col-4";
+
+//               newdiv.innerHTML ="<br><br>" + "symptom " + (counter + 1) + " <br><br><input type='text' style='width:1150px;' name='symptoms[]'>";
+
+//               document.getElementById(divName).appendChild(newdiv);
+
+//               counter++;
+
+//          }
+
+//     }
+// </script>
+</body>
+</html>
