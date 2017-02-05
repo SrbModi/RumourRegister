@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 @csrf_exempt
 def forgot_get_pass(request):
 	if request.user.is_authenticated():
-		return HttpResponseRedirect('/')
+		return render(request,'welcome1.html')
 	else:
 		response={}
 		context={}
@@ -56,7 +56,7 @@ def forgot_get_pass(request):
 @csrf_exempt
 def forgot_ver_pass(request):
 	if request.user.is_authenticated():
-		return HttpResponseRedirect('/')
+		return render(request,'welcome1.html')
 	else:
 		context={}
 		context["message"]="Enter the otp sent to your registerd email id"
@@ -87,7 +87,7 @@ def forgot_ver_pass(request):
 @csrf_exempt
 def change_password(request):
 	if request.user.is_authenticated():
-		return HttpResponseRedirect('/')
+		return render(request,'welcome1.html')
 	else:
 		response={}
 		context={}
@@ -120,7 +120,7 @@ def change_password(request):
 
 def welcome(request):
 	pass
-	return render(request,'welcome.html')
+	return HttpResponseRedirect('/feed/')
 
 
 

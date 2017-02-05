@@ -18,7 +18,7 @@ from django.contrib import admin
 from forgot_password.views import change_password,forgot_get_pass,forgot_ver_pass,welcome
 from login_data.views import login_view,logout_view
 from user_data.views import signup,add,send_mail
-from report.views import add_repo,feed
+from report.views import add_repo,feed,about_us,contact
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,8 +33,8 @@ urlpatterns = [
     url(r'^add_repo/$',add_repo),
     url(r'^feed/$',feed),
     url(r'^logout/$',logout_view),
-
-
+    url(r'^about/$',about_us),
+    url(r'^contact/$',contact),
 
 ]
 

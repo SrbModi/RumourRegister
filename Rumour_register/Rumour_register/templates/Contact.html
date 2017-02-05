@@ -69,14 +69,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Rumour Register</a>
+                <a class="navbar-brand" href="#">LOGO HERE</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="/about/">ABOUT US</a></li>
-                    <li><a href="/login/">LOGIN</a></li>                      
-                    <li><a href="/contact/">CONTACT</a></li>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT US</a></li>
+                    <li><a href="/login/">LOGIN</a></li> 
+                                                              
+                    <li><a href="#">CONTACT</a></li>
                 </ul>
             </div>
            
@@ -158,15 +159,15 @@
             </div> -->
     <!--END SPACE ADJUSTMENT SECTION -->
      <!--WELCOME SECTION -->
-      <div class="text-center"  id="welcome" >
+    <div class="text-center"  id="welcome" >
                
-                    <h1 style="padding-bottom: 0px;">Rumour Register  </h1>
-          
-                    <!-- <a class="btn btn-danger btn-lg" href="#">Report a porblem now!</a> -->
-                    <!-- <img src="unicef.png" style="height: 100px;padding-top: 0px;"/> -->
-                    <h2 style="color:#17202A  ;padding-top: 0px;">Together, We Can Save a Life</h2>
+        <!-- <h1 style="padding-bottom: 0px;">Rumour Register  </h1> -->
 
-            </div>
+        <!-- <a class="btn btn-danger btn-lg" href="#">Report a porblem now!</a> -->
+        <img src="/static/assets1/img/team/unicef.png" style="height: 100px;padding-top: 0px;"/>
+        <!-- <h2 style="color:#17202A  ;padding-top: 0px;">Together, We Can Save a Life</h2> -->
+
+    </div>
           <!--END WELCOME SECTION -->
    
 
@@ -191,11 +192,11 @@
         </div>
         </div> -->
 
-        <div class = "card" style="padding-left: 75px;padding-right: 75px">
+        <!-- <div class = "card" style="padding-left: 75px;padding-right: 75px">
             <div class="w3-panel w3-card w3-hover-shadow "  >
 
             <div >
-                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" style="padding: 0px;float:right; background-color: white;border: 0px;"><img src="/static/assets1/img/team/1.png" style="width:35px;height:35px;"/></button>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" style="padding: 0px;float:right; background-color: white;border: 0px;"><img src="1.png" style="width:35px;height:35px;"/></button>
                 <h3>Sourabh Modi</h3>
                 <div id="demo" class="collapse">
                 <h4>symptoms : </h4>
@@ -210,7 +211,7 @@
             </div>
 
 
-           <!--  <hr>
+            <hr>
             <div >
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo1" style="padding: 0px;float:right; background-color: white;border: 0px;"><img src="1.png" style="width:35px;height:35px;"/></button>
                 <h3>Arpit Jain</h3>
@@ -267,22 +268,117 @@
                 <h4>relevent data : </h4>
                 dkjflksjd, lkfjaskljf, sjflkjaslfkj, aslfjlaskjfl
                     </div>
-            </div> -->
-{{x|safe}}
+            </div>
+
 
             </div>
 
-        </div>
+        </div> -->
     <!-- END OF FEED SECTION -->
 
+   
+   <!--CONTACT SECTION -->
+    <div id="contact-section">
+        <div class="container">
+            <div class="row main-top-margin text-center">
+                <div class="col-md-8 col-md-offset-2 " >
+                    <h1>Contact Details</h1>
+                   <h4>
+                       <strong>
+                       If you cannot reach your Nearest Medical Officer or Hospitals to lodge an outbreak</br>
+                       We will help you:<br/>
+                       Phone No: 1800-121-7653, 1800-123-7766, 1800-123-7666<br/>
+                       E-Mail: help@rumourregister.in
+
+
+                            </strong>
+                    </h4>
+                </div>
+            </div>
+            <!-- ./ Main Heading-->
+            <hr />
+            <div class="row">
+                <div class="col-md-12  col-sm-12 " >
+                    <div class="col-md-6  " >
+                        <h3> UNICEF Office</h3>
+                        <p>
+                        Katora Talab<br />
+                            Civil Lines<br />
+                            Raipur, Chhattisgarh, India<br />                          
+                        Call: 1800 3000 5898<br />
+                        Email: indiadonors@unicefindia.org<br />
+                            </p>
+                       
+                    </div>
+
+
+<div id="googleMap" style="width:100%;height:400px;" >
+
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(21.23,81.65);
+var mapProp= {
+
+    center:new google.maps.LatLng(21.23,81.65),
+    zoom:15,
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+    content: "UNICEF Office Raipur"
+  }
+);
+infowindow.open(map,marker);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATEGI8K-2qaR-HnMmjqbLcxB4sZkXm1YE&callback=myMap"></script>
+</div>
+                    <!-- <div class="col-md-6  " >
+                        <h3>Drop a Line or Hire Me </h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" required="required" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" required="required" placeholder="Email address">
+                                    </div>
+                                </div>
+                            </div> -->
+                             
+                            <!-- <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" required="required" class="form-control" rows="3"  placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success">Submit Request</button>
+                                    </div>
+                                </div>
+                            </div> -->
+                        <!-- </form> -->
+                    </div>
+                    
+                </div>
+            </div>
+           
+             <!-- ./ Row Content-->
+        </div>
+    </div>  
+    <!--END CONTACT SECTION --> 
 
 
     
     <!--SOCIAL SECTION -->
-      <div   id="social" >
+      <div   id="social">
             
-            <h2 style="color: white;"><b>DEVELOPED BY</b></h2>
-                    
+            <h2 style="color: white;margin-left: 100px;"><b>DEVELOPED BY</b></h2>
             <div style="padding-left: 100px;color: #212F3D">
             <center>
                 <table style="padding:10px;width:100%;">

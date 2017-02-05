@@ -16,7 +16,7 @@ from django.shortcuts import render_to_response
 @csrf_exempt
 def login_view(request):
 	if request.user.is_authenticated():
-		return render(request,'welcome.html')
+		return render(request,'welcome1.html')
 	else:
 		if request.method=="POST":
 			response={}
@@ -31,19 +31,21 @@ def login_view(request):
 					if user is not None:
 						login(request, user)
 						response["message"]="Welcome to Code NIT"
+						return render(request,'welcome1.html')
 				else:
 					response["message"]="user_id or password not matched"
+					return render(request,'login.html',{"key":"USER ID OR PASSWORD WRONG"})
 
 			except:
 				response["success"]=False
 				response["message"]="user id and password not get"
 
 			print str(response)
-			return HttpResponseRedirect('')
+			return HttpResponse(str(response))
 
 		else:
 			# return HttpResponseRedirect('/')
-			return render(request,'login.html')
+			return render(request,'login.html',{})
 
 def logout_view(request):
 	logout(request)

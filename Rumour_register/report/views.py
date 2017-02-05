@@ -15,8 +15,6 @@ def add_repo(request):
 	response={}
 	if request.method=="POST":
 		try:
-			# request.session['user']=user
-			# print user
 			user_row= user_data.objects.get(user=str(request.user))
 			city=str(user_row.city)
 			print city
@@ -90,28 +88,44 @@ Team Rumour Register"""
 		return render(request,"feed.html")
 
 #url(r'^check/(?P<id>\d+)/$', check)
-def feed(request,id):
-	for o in report.objects.all:
-		str = '<div ><button type="button" class="btn btn-info" data-toggle="collapse"'
-		str+= ' data-target="#'
-		str+= str(o.serial)
-		str+= '" style="padding: 0px;float:right; background-color: white;border: 0px;">'
-		str+= '<img src="1.png" style="width:35px;height:35px;"/></button><h3>'
-		str+= str(o.user_id)
-		str+= '</h3><div id="'
-		str+= str(o.serial)
-		str+= '" class="collapse">'
-		str+= '<h4>symptoms : </h4>'
-		str+= str(o.symptoms)
-		str+= '<h4>probable cause : </h4>'
-		str+= str(o.prob_cause)
-		str+= '<h4>doctor response : </h4>'
-		str+= str(o.doc_response)
-		str+= '<h4>relevent data : </h4>'
-		str+= str(o.relevent) #dsds
-		str+= '<h4>Local Response : </h4>'
-		str+= str(o.loc_response)
-		str+= '</div></div><hr>'
+def feed(request):
+	stra = ' '
+	for o in report.objects.all():
+		stra+= '<div ><button type="button" class="btn btn-info" data-toggle="collapse"'
+		stra+= ' data-target="#a'
+		stra+= str(o.serial)
+		stra+= '" style="padding: 0px;float:right; background-color: white;border: 0px;">'
+		stra+= '<img src="/static/assets1/img/team/1.png" style="width:35px;height:35px;"/></button><h3>no of cases :'
+		stra+= str(o.no_cases)
+		stra+= '</h3><div id="a'
+		stra+= str(o.serial)
+		stra+= '" class="collapse">'
+		stra+= '<h4>symptoms : </h4>'
+		stra+= str(o.symptoms)
+		stra+= '<h4>probable cause : </h4>'
+		stra+= str(o.prob_cause)
+		stra+= '<h4>doctor response : </h4>'
+		stra+= str(o.doc_response)
+		# stra+= '<h4>relevent data : </h4>'
+		# stra+= str(o.relevent) #dsds
+		stra+= '<h4>Local Response : </h4>'
+		stra+= str(o.loc_response)
+		stra+= '</div></div><hr>'
+	print str(stra)
+	if request.user.is_authenticated():
+		return render(request,'welcome1.html',{"x":stra})
+	else:
+		return render(request,'welcome.html',{"x":stra})
 
-	return 
+def about_us(request):
+	if request.user.is_authenticated():
+		return render(request,'about_us1.html')
+	else:
+		return render(request,'about_us.html')
+
+def contact(request):
+	if request.user.is_authenticated():
+		return render(request,'Contact1.html')
+	else:
+		return render(request,'Contact.html')
 
